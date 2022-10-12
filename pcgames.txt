@@ -1,0 +1,149 @@
+[2:47 PM, 10/12/2022] shraddhamishra✨: object HeroesRepository {
+   val heroes = listOf(
+       Hero(
+           nameRes = R.string.hero1,
+           descriptionRes = R.string.description1,
+           imageRes = R.drawable.android_superhero1
+       ),
+       Hero(
+           nameRes = R.string.hero2,
+           descriptionRes = R.string.description2,
+           imageRes = R.drawable.android_superhero2
+       ),
+       Hero(
+           nameRes = R.string.hero3,
+           descriptionRes = R.string.description3,
+           imageRes = R.drawable.android_superhero3
+       ),
+       Hero(
+           nameRes = R.string.hero4,
+           descriptionRes = R.string.description4,
+           imageRes = R.drawable.android_superhero4
+       ),
+       Hero(
+           nameRes = R.string.hero5,
+           descriptionRes = R.string.description5,
+           imageRes = R.drawable.android_superhero5
+       ),
+       Hero(
+           nameRes = R.string.hero6,
+           descriptionRes = R.string.description6,
+           imageRes = R.drawable.android_superhero6
+       )
+   )
+}
+Back
+
+English
+Next
+bug_report Report a mistake
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affil
+[2:47 PM, 10/12/2022] shraddhamishra✨: //Light Theme
+val md_theme_light_background = Color(0xFFFDFCF4)
+val md_theme_light_surface = Color(0xFFE0EACE)
+val md_theme_light_secondary = Color(0xFF596148)
+val md_theme_light_onSurface = Color(0xFF1B1C18)
+val md_theme_light_primary = Color(0xFF466800)
+val md_theme_light_onPrimary = Color(0xFF223600)
+
+
+// Dark Theme
+val md_theme_dark_background = Color(0xFF1B1C18)
+val md_theme_dark_surface = Color(0xFF373F29)
+val md_theme_dark_secondary = Color(0xFFDDE6C6)
+val md_theme_dark_onSurface = Color(0xFFE4E3DB)
+val md_theme_dark_primary = Color(0xFFC1CAAB)
+val md_theme_dark_onPrimary = Color(0xFFDDE6C6)
+Shape
+[2:47 PM, 10/12/2022] shraddhamishra✨: import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Shapes
+import androidx.compose.ui.unit.dp
+
+val Shapes = Shapes(
+   small = RoundedCornerShape(8.dp),
+   medium = RoundedCornerShape(16.dp),
+   large = RoundedCornerShape(16.dp)
+)
+[2:47 PM, 10/12/2022] shraddhamishra✨: import androidx.compose.material.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+import com.example.superheroes.R
+
+val Cabin = FontFamily(
+   Font(R.font.cabin_regular, FontWeight.Normal),
+   Font(R.font.cabin_bold, FontWeight.Bold)
+)
+
+// Set of Material typography styles to start with
+val Typography = Typography(
+   defaultFontFamily = Cabin,
+   h1 = TextStyle(
+       fontWeight = FontWeight.Normal,
+       fontSize = 30.sp
+   ),
+   h2 = TextStyle(
+       fontWeight = FontWeight.Bold,
+       fontSize = 20.sp
+   ),
+   h3 = TextStyle(
+       fontWeight = FontWeight.Bold,
+       fontSize = 20.sp
+   ),
+
+   body1 = TextStyle(
+       fontWeight = FontWeight.Normal,
+       fontSize = 16.sp
+   )
+)
+Theme
+
+ui.theme.Theme.kt
+
+
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.darkColors
+import androidx.compose.material.lightColors
+import androidx.compose.runtime.Composable
+
+private val DarkColorPalette = darkColors(
+   background = md_theme_dark_background,
+   surface = md_theme_dark_surface,
+   onSurface = md_theme_dark_onSurface,
+   primary = md_theme_dark_primary,
+   onPrimary = md_theme_dark_onPrimary,
+   secondary = md_theme_dark_secondary
+)
+
+private val LightColorPalette = lightColors(
+   background = md_theme_light_background,
+   surface = md_theme_light_surface,
+   onSurface = md_theme_light_onSurface,
+   primary = md_theme_light_primary,
+   onPrimary = md_theme_light_onPrimary,
+   secondary = md_theme_light_secondary
+)
+
+@Composable
+fun SuperheroesTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+   val colors = if (darkTheme) {
+       DarkColorPalette
+   } else {
+       LightColorPalette
+   }
+
+   MaterialTheme(
+       colors = colors,
+       typography = Typography,
+       shapes = Shapes,
+       content = content
+   )
+}
+Back
+
+English
+Next
+bug_report Report a mistake
